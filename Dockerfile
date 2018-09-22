@@ -2,6 +2,11 @@
 
 FROM          alpine:3.7 as build
 
+# BUILD_DATE and VCS_REF are immaterial, since this is a 2-stage build, but our build
+# hook won't work unless we specify the args
+ARG BUILD_DATE
+ARG VCS_REF
+
 ENV           XMRIG_DIR /xmrig-cpu
 ENV           XMRIG_BUILD_DIR $XMRIG_DIR/build
 
